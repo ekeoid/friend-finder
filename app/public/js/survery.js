@@ -32,7 +32,7 @@ function printQuestions() {
 }
 
 function printAnswers(group) {
-    console.log("hello");
+
     let divToolbar = $("<div>");
     let divGroup = $("<div>");
     
