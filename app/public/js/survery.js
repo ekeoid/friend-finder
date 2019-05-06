@@ -1,3 +1,8 @@
+$(document).ready(function() {
+    printQuestions();
+    setupEventHandlers();
+});
+
 let questions = [
     "Your mind is always buzzing with unexplored ideas and plans.",
     "Generally speaking, you rely more on your experience than your imagination.",
@@ -10,9 +15,6 @@ let questions = [
     "You think that everyone’s views should be respected regardless of whether they are supported by facts or not.",
     "You feel more energetic after spending time with a group of people."
 ];
-
-printQuestions();
-
 
 function printQuestions() {
     
@@ -70,34 +72,69 @@ function printAnswers(group) {
     divToolbar.append(divGroup);
     
     return divToolbar;
-}
 
+} // end printAnswers()
 
+function setupEventHandlers() {
 
-$(".btn-score").on("click", function(event) {
-    event.preventDefault();
-    
-    let currentGroup = $(this).parent().attr("group");
+    function validateForm() {
+        let isValid = true;
 
-    // Reset Colors
-    for (let i=1; i <= 5; i++) {
-        let button = $(".btn-group[group=" + currentGroup + "] > button:contains(" + i + ")");
-        button.css("background-color", button.attr("color"));
-        button.removeClass("active");
+        $(".form-control").each(function () {
+            if ($(this).val() === "") {
+                isValid = false;
+            }
+        });
+
+        if ( $(".active").length < 1 ) {
+            isValid = true;
+        }
+
+        return isValid;
     }
+
+    $(document).on("click", ".btn-score", function(event) {
+        //event.preventDefault();
+        let currentGroup = $(this).parent().attr("group");
+
+        // Reset Colors
+        for (let i=1; i <= 5; i++) {
+            let button = $(".btn-group[group=" + currentGroup + "] > button:contains(" + i + ")");
+            button.css("background-color", button.attr("color"));
+            button.removeClass("active");
+        }
+        
+        $(this).addClass("active");
+        $(this).css("background-color", "rgb(50, 50, 50)");
+    });
     
-    $(this).addClass("active");
-    $(this).css("background-color", "rgb(50, 50, 50)");
+    $(document).on("submit", "#new-user", function(event) {
+        event.preventDefault();
 
-
-});
-
-$(".btn-submit").on("click", function(event) {
-    event.preventDefault();
-
-    var all = $(".active").map(function() {
-        return this.innerHTML;
-    }).get();
+        if (validateForm()) {
+            let scores = $(".active").map(function() {
+                return $(this).text();
+            }).get();
     
-    console.log(all.join());
-});
+            let userData = {
+                name: $("#form-name").val().trim(),
+                photo: $("#form-photo").val().trim(),
+                scores: scores
+            };
+
+            $.ajax("/api/friends", {
+                type: "POST",
+                data: userData
+            }).then( function(response) {
+                console.log("Added user data");
+                
+                console.log(response);
+    
+            });
+        } else {
+            alert("Please fill out all fields before submitting!");
+        }
+        
+    });
+
+} // end setupEventHandlers()
