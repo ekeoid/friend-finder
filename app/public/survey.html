@@ -18,25 +18,59 @@
         </div>
         
         <div class="container"> 
-        <h3 class="pb-3">About You</h3>
-        <form class="mb-5" id="new-user">
-            <div class="form-group col-md-10">
-                <label for="formGroupExampleInput">Name (Required)</label>
-                <input type="text" class="form-control" id="form-name" placeholder="Your name">
+            <h3 class="pb-3">About You</h3>
+            <form class="mb-5" id="new-user">
+                <div class="form-group col-md-10">
+                    <label for="formGroupExampleInput">Name (Required)</label>
+                    <input type="text" class="form-control" id="form-name" placeholder="Your name">
+                </div>
+                <div class="form-group col-md-10 pb-3">
+                    <label for="formGroupExampleInput2">Link to Photo Image (Required)</label>
+                    <input type="text" class="form-control" id="form-photo" placeholder="Your photo">
+                </div>
+
+                <hr class="pb-2">
+
+                <div id="question-area"></div>
+
+                <button type="submit" class="btn btn-primary btn-submit px-5 mb-2">Submit</button>
+                
+                <br/><br/>
+                
+            </form>
+
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Large modal</button> -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">We found a match!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Meet <span id="match-name">Name</span></p>
+
+                            <img id="match-photo" src="" alt="" /> 
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group col-md-10 pb-3">
-                <label for="formGroupExampleInput2">Link to Photo Image (Required)</label>
-                <input type="text" class="form-control" id="form-photo" placeholder="Your photo">
-            </div>
-
-            <hr class="pb-2">
-
-            <div id="question-area"></div>
-
-            <button type="submit" class="btn btn-primary btn-submit px-5 mb-2">Submit</button>
-        </form>
         </div>
-    </div>
+        
+        <footer class="footer mt-5">
+            <div class="container">
+                <a href="/api/friends">API Friends List</a> | <a href="https://github.com/ekeoid/friend-finder">GitHub Repo</a>
+            </div>
+        </footer>
+
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->

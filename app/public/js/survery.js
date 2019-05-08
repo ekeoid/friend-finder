@@ -127,8 +127,16 @@ function setupEventHandlers() {
                 data: userData
             }).then( function(response) {
                 console.log("Added user data");
-                
                 console.log(response);
+
+                $("#match-name").text(response.name);
+                $("#match-name").css("font-weight", "500");
+
+                $("#match-photo").attr("src", response.photo);
+                $("#match-photo").css("width", "200px");
+                //$("#match-photo").css("height", "200px");
+
+                $("#exampleModal").modal("show");
     
             });
         } else {
