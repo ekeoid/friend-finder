@@ -12,7 +12,7 @@ function getScores() {
 
 var Friends = [
     {
-        "name": "Andrea Asselin",
+        "name": "Andre Asselin",
         "photo": "https://media.giphy.com/media/C9x8gX02SnMIoAClXa/giphy.gif",
         "scores": [
             "2",

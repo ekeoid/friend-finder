@@ -1,14 +1,16 @@
+const express = require("express");
 const path = require("path");
 
-module.exports = function(app) {
+const appRoute = express.Router();
 
-    console.log("HTML Routes");
-    
-    app.get("/survey", function (req,res) {
-        res.sendFile(path.join(__dirname, "../public/survey.html"));
-    });
-    
-    app.get("*", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/home.html"));
-    });
-};
+console.log("HTML routes loaded");
+
+appRoute.get("/survey", function (req,res) {
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
+});
+
+appRoute.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
+});
+
+module.exports = appRoute;
