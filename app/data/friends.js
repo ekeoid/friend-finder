@@ -42,8 +42,8 @@ var Friends = [
 			"3"
         ]
     }, {
-        "name": "Alyssa Capps",
-        "photo": "https://media.giphy.com/media/1iu8uG2cjYFZS6wTxv/giphy.gif",
+        "name": "Michael Dinh",
+        "photo": "https://media.giphy.com/media/PekRU0CYIpXS8/giphy.gif",
         "scores": [
 			"3",
 			"3",
@@ -117,8 +117,8 @@ var Friends = [
 			"3"
         ]
     }, {
-        "name": "Michael Dinh",
-        "photo": "https://media.giphy.com/media/PekRU0CYIpXS8/giphy.gif",
+        "name": "Alyssa Capps",
+        "photo": "https://media.giphy.com/media/1iu8uG2cjYFZS6wTxv/giphy.gif",
         "scores": [
 			"2",
 			"2",
