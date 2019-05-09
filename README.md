@@ -18,6 +18,12 @@ You can find the instructions for this assignment here: [homework-instructions.m
 
 ## Features
 
+- **Survey HTML**
+  1. Used Bootstrap `btn-group` to make a row of buttons as scoring values 1..5
+- **API Routes**
+  1. Used `Array.map()` and `Array.reduce()` to determine compatability results
+  2. Used `express.Router()` to route functions to the require
+
 ## Usage
 
 ## Design
